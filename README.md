@@ -18,7 +18,7 @@ Tensorflow JS implementation under NodeJS for server side applications, with sim
 
 # What we are looking for:
 - Smma cross(SAwesome oscillator) indicated trades predict with classification method Good/Bad (An avarage good trade on the picture below)
-![example chart](https://raw.githubusercontent.com/Palabola/StockML-TF/master/readme/example.jpg)
+![example chart](https://github.com/stockmlbot/NodeTFJS/blob/master/readme/example.jpg)
 
 # Results:
 - AO,Trix,Mome     -> lstm_hidden_cells with 3x50 Epoch: loss=0.0812 val_loss=0.0822

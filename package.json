@@ -1,0 +1,22 @@
+{
+  "name": "StockML-TF",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^1.1.2",
+    "co-body": "^6.0.0",
+    "dotenv": "^8.0.0",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "lodash": "^4.17.11",
+    "winston": "^3.2.1"
+  }
+}

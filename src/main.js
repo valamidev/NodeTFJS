@@ -7,7 +7,7 @@ const tensorflow = require("./tensorflow/tensorflow");
 const httpAPI = require("./httpAPI");
 
 // Set HTTP api port!
-const API = new httpAPI(3000);
+const API = new httpAPI(3333);
 
 async function main() {
   try {
@@ -15,7 +15,9 @@ async function main() {
     API.add_tf_control_routes("lstm", tensorflow);
     // HTTP API
 
-    let rawdata = await fs.readFileSync("sma_stoploss_multi.tf");
+    let rawdata = await fs.readFileSync(
+      "./sample/trade_history_ao_mome_trix_rsi"
+    );
     let trade_signals = JSON.parse(rawdata);
 
     let tensor_data = util.trade_singal_extractor(trade_signals, 4);

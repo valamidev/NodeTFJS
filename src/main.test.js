@@ -46,7 +46,7 @@ async function test() {
     await tensorflow.load_train_tensor(tensor_data.train);
 
     await tensorflow.train_modell({
-      model: "lstm_hidden_cells",
+      model: "lstm_hibrid",
       name: "",
       loop: 1,
       epochs: 50

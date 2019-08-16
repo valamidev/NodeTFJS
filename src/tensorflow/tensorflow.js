@@ -113,7 +113,7 @@ class Tensorflow {
       let config = {
         verbose: 1,
         epochs: settings.epochs,
-        batchSize: 4096,
+        batchSize: 8192,
         validationSplit: 0.1
       };
 

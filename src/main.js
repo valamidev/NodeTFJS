@@ -15,12 +15,10 @@ async function main() {
     API.add_tf_control_routes("lstm", tensorflow);
     // HTTP API
 
-    let rawdata = await fs.readFileSync(
-      "./sample/trade_history_ao_mome_trix_rsi"
-    );
+    let rawdata = await fs.readFileSync("./sample/ml_train.tf");
     let trade_signals = JSON.parse(rawdata);
 
-    let tensor_data = util.trade_singal_extractor(trade_signals, 4);
+    let tensor_data = util.trade_singal_extractor(trade_signals, 6);
 
     console.log("Train sample data: ", tensor_data.train[0]);
     console.log("Test sample data: ", tensor_data.test[0]);

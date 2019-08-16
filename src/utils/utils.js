@@ -28,12 +28,12 @@ const utils = {
 
         tensor_frame.profit = ((sell_price - buy_price) / sell_price) * 100;
 
-        if (sell_price >= buy_price * 1.01) {
+        if (sell_price >= buy_price * 1.009) {
           tensor_frame.output = [1, 0];
           tensor_good.push(tensor_frame);
         }
 
-        if (sell_price <= buy_price * 0.99) {
+        if (sell_price <= buy_price * 0.991) {
           tensor_frame.output = [0, 1];
           tensor_bad.push(tensor_frame);
         }

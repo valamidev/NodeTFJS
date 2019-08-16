@@ -8,65 +8,10 @@ let optimizer = tf.train.adam();
 let loss = tf.losses.meanSquaredError;
 
 const models = {
-  lstm_hibrid: (input_shape, output_shape) => {
-    // Config
-    loss = tf.losses.huberLoss;
-    optimizer = tf.train.adam();
-
-    const cells = [
-      tf.layers.lstmCell({ units: 64 }),
-      tf.layers.lstmCell({ units: 128 }),
-      tf.layers.lstmCell({ units: 128 })
-    ];
-
-    model.add(
-      tf.layers.rnn({
-        cell: cells,
-        inputShape: input_shape,
-        returnSequences: true
-      })
-    );
-
-    model.add(
-      tf.layers.lstm({
-        units: 128,
-        returnSequences: false
-      })
-    );
-
-    model.add(
-      tf.layers.dense({
-        units: 128,
-        activation: "relu"
-      })
-    );
-
-    model.add(
-      tf.layers.dense({
-        units: 32,
-        activation: "relu"
-      })
-    );
-
-    model.add(
-      tf.layers.dense({
-        units: output_shape,
-        activation: "softmax"
-      })
-    );
-
-    model.compile({
-      optimizer,
-      loss
-    });
-
-    return model;
-  },
-
   lstm_hidden_cells: (input_shape, output_shape) => {
     // Config
     loss = tf.losses.huberLoss;
-    optimizer = tf.train.adam(0.001, 0.00001);
+    optimizer = tf.train.adam();
 
     model.add(
       tf.layers.inputLayer({
@@ -77,9 +22,9 @@ const models = {
     const cells = [
       tf.layers.lstmCell({ units: 128 }),
       tf.layers.lstmCell({ units: 128 }),
-      tf.layers.lstmCell({ units: 128 }),
-      tf.layers.lstmCell({ units: 128 }),
-      tf.layers.lstmCell({ units: 128 })
+      tf.layers.lstmCell({ units: 64 }),
+      tf.layers.lstmCell({ units: 48 }),
+      tf.layers.lstmCell({ units: 32 })
     ];
 
     model.add(
@@ -88,69 +33,6 @@ const models = {
         returnSequences: false
       })
     );
-
-    model.add(
-      tf.layers.dense({
-        units: output_shape,
-        activation: "softmax"
-      })
-    );
-
-    model.compile({
-      optimizer,
-      loss
-    });
-
-    return model;
-  },
-
-  lstm: (input_shape, output_shape) => {
-    // Config
-    loss = tf.losses.huberLoss;
-    optimizer = tf.train.adam();
-
-    model.add(
-      tf.layers.lstm({
-        units: 128,
-        inputShape: input_shape,
-        returnSequences: true
-      })
-    );
-
-    model.add(
-      tf.layers.dropout({
-        rate: 0.2
-      })
-    );
-    model.add(tf.layers.batchNormalization());
-
-    model.add(
-      tf.layers.lstm({
-        units: 128,
-        returnSequences: true
-      })
-    );
-
-    model.add(
-      tf.layers.dropout({
-        rate: 0.1
-      })
-    );
-    model.add(tf.layers.batchNormalization());
-
-    model.add(
-      tf.layers.lstm({
-        units: 64,
-        activation: "tanh"
-      })
-    );
-
-    model.add(
-      tf.layers.dropout({
-        rate: 0.2
-      })
-    );
-    model.add(tf.layers.batchNormalization());
 
     model.add(
       tf.layers.dense({

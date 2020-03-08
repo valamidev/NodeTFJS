@@ -2,7 +2,7 @@
 
 const _ = require("lodash");
 const logger = require("../logger");
-const tf = require("@tensorflow/tfjs-node");
+const tf = require("@tensorflow/tfjs-node-gpu");
 const tf_model = require("../tf_models/tf_models");
 
 class Tensorflow {

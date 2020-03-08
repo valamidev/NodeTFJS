@@ -1,6 +1,6 @@
 "use strict";
 
-const tf = require("@tensorflow/tfjs-node");
+const tf = require("@tensorflow/tfjs-node-gpu");
 
 // Default values
 let model = tf.sequential();
